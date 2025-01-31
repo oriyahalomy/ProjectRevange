@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "185735902654",
+    "project_id": "projectrevange",
+    "storage_bucket": "projectrevange.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185735902654:android:645dff03f55cf89d3c35ef",
+        "android_client_info": {
+          "package_name": "com.example.projectrevange"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy5Zo_t7kacrfwZPwwYuLcIpjdYNK4IZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

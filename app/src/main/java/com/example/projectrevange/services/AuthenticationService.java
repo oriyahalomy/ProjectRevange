@@ -1,4 +1,11 @@
-package services;
+package com.example.projectrevange.services;
+
+import android.util.Log;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.jetbrains.annotations.NotNull;
 
 public class AuthenticationService {
 

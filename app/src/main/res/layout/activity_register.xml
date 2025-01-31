@@ -5,43 +5,71 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register">
+    tools:context=".screens.RegisterActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="91dp"
         android:layout_height="43dp"
-        android:text="TextView"
+        android:text="Register"
         tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="70dp" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/etFName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:text="First Name"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="150dp" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/etLName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:text="Last Name"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="234dp" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/etPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:text="Phone"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="322dp" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Email"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="418dp" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Password"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="497dp" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="606dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
