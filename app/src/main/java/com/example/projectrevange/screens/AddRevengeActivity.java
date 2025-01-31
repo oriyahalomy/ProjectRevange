@@ -1,6 +1,7 @@
 package com.example.projectrevange.screens;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,14 +9,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.projectrevange.R;
 import com.example.projectrevange.models.Revenge;
+import com.example.projectrevange.services.AuthenticationService;
 import com.example.projectrevange.services.DatabaseService;
 
 import java.util.Calendar;
@@ -23,9 +21,9 @@ import java.util.Date;
 
 public class AddRevengeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button dateButton;
+    private Button dateButton,btnBack;
     private Button saveButton;
-    private EditText etReason;
+    private EditText etReason,etHowRevenge,etTitle;
     private Spinner spinnerUsers;
     Date selectedDate;
     DatabaseService databaseService;
@@ -38,6 +36,8 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
         databaseService = DatabaseService.getInstance();
 
         dateButton = findViewById(R.id.dateButton);
+        btnBack = findViewById(R.id.btnBack);
+
 
         dateButton.setOnClickListener(v -> {
             // קבלת תאריך נוכחי
@@ -63,33 +63,49 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
         etReason = findViewById(R.id.etReason);
         spinnerUsers= findViewById(R.id.spinnerUsers);
         saveButton = findViewById(R.id.saveButton);
+        etTitle = findViewById(R.id.etTitle);
+        etHowRevenge = findViewById(R.id.etHowRevenge);
+
 
         // הגדרת פעולה לכפתור השמירה
-        saveButton.setOnClickListener(this)
+        saveButton.setOnClickListener(this);
+        btnBack.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         // קבלת נתונים מהמשתמש
         String reason = etReason.getText().toString();
-        String selectedUser = spinnerUsers.getSelectedItem().toString();
+        String selectedUser = spinnerUsers.getSelectedItem().toString(); //TODO
+        String title =  etTitle.getText().toString();
+        String howRevenge = etHowRevenge.getText().toString();
         if (selectedDate == null) {
-
             return;
         }
-        if (!reason.isEmpty()) {
-            databaseService.generateNewRevengeId()
-            // שמירה בבסיס הנתונים
-            Revenge revenge = new Revenge()
-            databaseService.c
-            finish();
-        } else {
-            Toast.makeText(AddRevengeActivity.this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
+        if (reason.isEmpty()) {
+            return;
         }
+        String id = databaseService.generateNewRevengeId();
+        // שמירה בבסיס הנתונים
+        Revenge revenge = new Revenge(id, title, reason, AuthenticationService.getInstance().getCurrentUserId(),
+                selectedUser, howRevenge, selectedDate);
+        databaseService.createNewRevenge(revenge, new DatabaseService.DatabaseCallback<Void>() {
+            @Override
+            public void onCompleted(Void object) {
+                finish();
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+
+            }
+        });
+
+        if (v.getId() == btnBack.getId()) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return;
+        }
+
     }
-}
-
-
-
-
 }

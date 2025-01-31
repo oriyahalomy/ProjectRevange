@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.example.projectrevange.models.Revenge;
 import com.example.projectrevange.models.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -141,6 +142,17 @@ public class DatabaseService {
     /// @see User
     public void getUser(@NotNull final String uid, @NotNull final DatabaseCallback<User> callback) {
         getData("users/" + uid, User.class, callback);
+    }
+
+
+    /// REVENGE!!!!!!
+
+    public String generateNewRevengeId() {
+        return generateNewId("revenge");
+    }
+
+    public void createNewRevenge(@NotNull final Revenge revenge, @Nullable final DatabaseCallback<Void> callback) {
+        writeData("revenge/" + revenge.getId(), revenge, callback);
     }
 
 }

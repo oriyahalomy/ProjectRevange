@@ -8,41 +8,46 @@
     tools:context=".screens.LoginActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_width="166dp"
+        android:layout_height="76dp"
         android:text="Log In"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_login_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="165dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/et_login_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="297dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_login_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_login_email" />
 
     <Button
         android:id="@+id/btn_login_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="468dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

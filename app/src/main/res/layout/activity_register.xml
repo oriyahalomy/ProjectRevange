@@ -12,64 +12,77 @@
         android:layout_width="91dp"
         android:layout_height="43dp"
         android:text="Register"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etFName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
         android:ems="10"
         android:inputType="text"
         android:text="First Name"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="150dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/etLName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
         android:ems="10"
         android:inputType="text"
         android:text="Last Name"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="234dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFName" />
 
     <EditText
         android:id="@+id/etPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
         android:ems="10"
         android:inputType="text"
         android:text="Phone"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="322dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLName" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
         android:ems="10"
         android:inputType="text"
         android:text="Email"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="418dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="text"
         android:text="Password"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="497dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         android:text="Send"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="606dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
