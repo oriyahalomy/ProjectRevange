@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ProjectRevange"
         tools:targetApi="31">
         <activity
+            android:name=".screens.RevengeBusketActivity"
+            android:exported="false" />
+        <activity
             android:name=".screens.AddRevengeActivity"
             android:exported="false" />
         <activity
