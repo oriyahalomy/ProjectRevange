@@ -183,4 +183,12 @@ public class DatabaseService {
         writeData("revenge/" + revenge.getId(), revenge, callback);
     }
 
+
+    public void getRevenge(@NotNull final String id, @NotNull final DatabaseCallback<Revenge> callback) {
+        getData("revenge/" + id, Revenge.class, callback);
+    }
+
+    public void getRevengeList(@NotNull final DatabaseCallback<List<Revenge>> callback) {
+        getDataList("Revenge", Revenge.class, callback);
+    }
 }

@@ -26,7 +26,7 @@ import java.util.List;
 
 public class AddRevengeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button dateButton, btnBack;
+    private Button dateButton;
     private Button saveButton;
     private EditText etReason, etHowRevenge, etTitle;
     private Spinner spinnerUsers;
@@ -42,7 +42,6 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
 
         // Initialize UI elements
         dateButton = findViewById(R.id.dateButton);
-        btnBack = findViewById(R.id.btnBack);
         saveButton = findViewById(R.id.saveButton);
         etReason = findViewById(R.id.etReason);
         spinnerUsers = findViewById(R.id.spinnerUsers);
@@ -76,7 +75,7 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
 
         // Set save and back buttons
         saveButton.setOnClickListener(this);
-        btnBack.setOnClickListener(this);
+
     }
 
     private void loadUsersFromDatabase() {
@@ -140,11 +139,7 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-        // Handle back button
-        if (v.getId() == btnBack.getId()) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            return;
-        }
+
+
     }
 }

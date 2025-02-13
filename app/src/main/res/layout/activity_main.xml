@@ -49,13 +49,40 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnBusket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="47dp"
-        android:text="Button"
+        android:text="Busket"
         app:layout_constraintEnd_toEndOf="@+id/btnAddRevenge"
         app:layout_constraintStart_toStartOf="@+id/btnAddRevenge"
         app:layout_constraintTop_toBottomOf="@+id/btnAddRevenge" />
+
+    <Button
+        android:id="@+id/btn11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kan11"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="396dp" />
+
+    <TextView
+        android:id="@+id/userLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnlogOut"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="30dp"
+        android:text="LogOut"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userLoggedIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
