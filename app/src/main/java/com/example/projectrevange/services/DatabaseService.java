@@ -128,6 +128,22 @@ public class DatabaseService {
         });
     }
 
+    /// remove data from the database at a specific path
+    /// @param path the path to remove the data from
+    /// @param callback the callback to call when the operation is completed
+    /// @see DatabaseCallback
+    private void deleteData(@NotNull final String path, @Nullable final DatabaseCallback<Void> callback) {
+        databaseReference.child(path).removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (callback == null) return;
+                callback.onCompleted(null);
+            } else {
+                if (callback == null) return;
+                callback.onFailed(task.getException());
+            }
+        });
+    }
+
     /// generate a new id for a new object in the database
     /// @param path the path to generate the id for
     /// @return a new id for the object
@@ -189,6 +205,10 @@ public class DatabaseService {
     }
 
     public void getRevengeList(@NotNull final DatabaseCallback<List<Revenge>> callback) {
-        getDataList("Revenge", Revenge.class, callback);
+        getDataList("revenge", Revenge.class, callback);
+    }
+
+    public void deleteRevenge(@NotNull final String id, @NotNull final DatabaseCallback<Void> callback) {
+        deleteData("revenge/" + id, callback);
     }
 }

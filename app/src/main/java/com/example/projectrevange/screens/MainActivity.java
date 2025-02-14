@@ -3,9 +3,11 @@ package com.example.projectrevange.screens;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +21,8 @@ import com.example.projectrevange.utils.SharedPreferencesUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btn11,btnlogOut;
-     private textView UserLoggedIn;
+     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btnKan11,btnlogOut,btnMyRevenge;
+     private TextView userLoggedIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
         btnBusket = findViewById(R.id.btnBusket);
-        btn11 = findViewById(R.id.btn11);
+        btnKan11 = findViewById(R.id.btnKan11);
         btnlogOut = findViewById(R.id.btnlogOut);
-        UserLoggedIn = findViewById(R.id.UserLoggedin);
+        userLoggedIn = findViewById(R.id.userLoggedIn);
+
 
 
 
@@ -50,18 +53,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
         btnBusket.setOnClickListener(this);
-        btn11.setOnClickListener(this);
+        btnKan11.setOnClickListener(this);
         btnlogOut.setOnClickListener(this);
+
 
         if(AuthenticationService.getInstance().isUserSignedIn()) {
             btnlogOut.setVisibility(View.VISIBLE);
             btnRegister.setVisibility(View.GONE);
             btnLogin.setVisibility(View.GONE);
-            UserLoggedIn.setVisibility(View.VISIBLE);
+            btnBusket.setVisibility(View.VISIBLE);
+            btnAddRevenge.setVisibility(View.VISIBLE);
+            userLoggedIn.setVisibility(View.VISIBLE);
+            userLoggedIn.setText(SharedPreferencesUtil.getUser(this).getFName());
         }
 
 
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -98,5 +107,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
             return;
         }
+
+        btnKan11.setOnClickListener(view -> {
+            String url ="https://www.youtube.com/watch?v=iL686rbf82M&list=PLLttfoK87AdW1TI5VZVTlGvQ4LpPAiP-n&index=14";
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+        });
+
+
     }
 }

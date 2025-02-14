@@ -17,12 +17,19 @@ import java.util.List;
 
 public class RevengeAdapter extends RecyclerView.Adapter<RevengeAdapter.RevengeViewHolder> {
 
+
+    public interface DeleteRevengeCallback {
+        void deleteRevenge(int position);
+    }
+
     private final List<Revenge> revengeList;
+    private final DeleteRevengeCallback deleteRevengeCallback;
     private Context context;
 
-    public RevengeAdapter(List<Revenge> revengeList, Context context) {
+    public RevengeAdapter(List<Revenge> revengeList, Context context, DeleteRevengeCallback deleteRevengeCallback) {
         this.revengeList = revengeList;
         this.context = context;
+        this.deleteRevengeCallback = deleteRevengeCallback;
     }
 
     @NonNull
@@ -39,6 +46,12 @@ public class RevengeAdapter extends RecyclerView.Adapter<RevengeAdapter.RevengeV
         holder.revengeUser.setText(Revenge.getUserIdTo());
         holder.revengeHow.setText(Revenge.getHowRevenge());
         holder.revengeReason.setText(Revenge.getReason());
+
+        final int pos = position;
+        holder.itemView.setOnLongClickListener(v -> {
+            deleteRevengeCallback.deleteRevenge(pos);
+            return false;
+        });
     }
 
     @Override

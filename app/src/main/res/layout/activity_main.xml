@@ -5,72 +5,81 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/material_dynamic_neutral60"
     tools:context=".screens.MainActivity">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Revenge4U"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
 
     <Button
         android:id="@+id/btnAddRevenge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="226dp"
+        android:layout_marginBottom="168dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="Add Revenge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnBusket"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="46dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="46dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="Register"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintStart_toEndOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnBusket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="268dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="Busket"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddRevenge"
-        app:layout_constraintStart_toStartOf="@+id/btnAddRevenge"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddRevenge" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
     <Button
-        android:id="@+id/btn11"
+        android:id="@+id/btnKan11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="233dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="kan11"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="396dp" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/userLoggedIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,9 +89,22 @@
         android:layout_width="45dp"
         android:layout_height="34dp"
         android:layout_marginTop="30dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="LogOut"
+        android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userLoggedIn" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="308dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

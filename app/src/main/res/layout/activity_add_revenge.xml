@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/material_dynamic_neutral60"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.AddRevengeActivity">
@@ -13,6 +14,8 @@
         android:layout_width="252dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="Add Revenge"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="Date"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -54,11 +59,13 @@
         android:id="@+id/saveButton"
         android:layout_width="197dp"
         android:layout_height="65dp"
+        android:layout_marginBottom="80dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="Save"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="561dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etTitle"

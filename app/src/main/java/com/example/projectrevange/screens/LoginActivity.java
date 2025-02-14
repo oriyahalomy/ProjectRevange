@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (v.getId() == btnLogin.getId()) {
             Log.d(TAG, "onClick: Login button clicked");
 
+
             /// get the email and password entered by the user
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
@@ -76,7 +77,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 return;
             }
 
-            Log.d(TAG, "onClick: Logging in user...");
 
             /// Login user
             loginUser(email, password);

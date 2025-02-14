@@ -1,8 +1,11 @@
 package com.example.projectrevange.screens;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,8 +21,15 @@ import com.example.projectrevange.services.DatabaseService;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.content.DialogInterface;
+import android.util.Log;
+
+import androidx.appcompat.app.AlertDialog; // for androidx
+
 
 public class RevengeBusketActivity extends AppCompatActivity {
+
+    private static final String TAG = "RevengeBusketActivity";
 
     private RecyclerView revengeBusket;
     RevengeAdapter revengeAdapter;
@@ -40,7 +50,7 @@ public class RevengeBusketActivity extends AppCompatActivity {
 
         revengeList = new ArrayList<>();
 
-        revengeAdapter = new RevengeAdapter(revengeList, this);
+        revengeAdapter = new RevengeAdapter(revengeList, this, this::showDeleteDialog);
         revengeBusket = findViewById(R.id.RevengeList);
         revengeBusket.setLayoutManager(new LinearLayoutManager(this));
         revengeBusket.setAdapter(revengeAdapter);
@@ -49,12 +59,13 @@ public class RevengeBusketActivity extends AppCompatActivity {
             @Override
             public void onCompleted(List<Revenge> revenges) {
                 String userId = AuthenticationService.getInstance().getCurrentUserId();
-
+                Log.i(TAG, revenges.toString());
                 for (Revenge revenge : revenges) {
                     if (revenge.getUserIdFrom().equals(userId)) {
                         revengeList.add(revenge);
                     }
                 }
+                Log.i(TAG, revengeList.toString());
                 revengeAdapter.notifyDataSetChanged();
             }
 
@@ -68,7 +79,42 @@ public class RevengeBusketActivity extends AppCompatActivity {
 
     }
 
+    private void showDeleteDialog(final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Remove User")
+                .setMessage("Are you sure?")
+                .setCancelable(false)
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Revenge revenge = revengeList.get(position);
+                        databaseService.deleteRevenge(revenge.getId(), new DatabaseService.DatabaseCallback<Void>() {
+                            @Override
+                            public void onCompleted(Void object) {
+                                // מחיקת הפריט מתוך הרשימה
+                                revengeList.remove(position);
+                                revengeAdapter.notifyItemRemoved(position);
+                                revengeAdapter.notifyDataSetChanged(); // עדכון של ה-RecyclerView
+                            }
+
+                            @Override
+                            public void onFailed(Exception e) {
+
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton("לא", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss(); // סגירת הדיאלוג
+                    }
+                });
+
+        builder.create().show();
+    }
+
 
     private class RevengeBusket {
+
+
     }
 }

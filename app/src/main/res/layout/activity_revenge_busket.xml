@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/material_dynamic_neutral60"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.RevengeBusketActivity">
@@ -21,6 +22,8 @@
         android:id="@+id/textView"
         android:layout_width="218dp"
         android:layout_height="29dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:layout_marginTop="52dp"
         android:text="Your Revenge Busket"
         android:textAlignment="center"
