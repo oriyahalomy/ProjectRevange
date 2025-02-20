@@ -12,16 +12,19 @@ public class User {
     private String lName;
     private String phone;
 
+    private boolean isAdmin;
+
     public User() {
     }
 
-    public User(String uid, String email, String password, String fName, String lName, String phone) {
+    public User(String uid, String email, String password, String fName, String lName, String phone, boolean isAdmin) {
         this.uid = uid;
         this.email = email;
         this.password = password;
         this.fName = fName;
         this.lName = lName;
         this.phone = phone;
+        this.isAdmin = isAdmin;
     }
 
     public String getUid() {
@@ -48,19 +51,19 @@ public class User {
         this.password = password;
     }
 
-    public String getFName() {
+    public String getfName() {
         return fName;
     }
 
-    public void setFName(String fName) {
+    public void setfName(String fName) {
         this.fName = fName;
     }
 
-    public String getLName() {
+    public String getlName() {
         return lName;
     }
 
-    public void setLName(String lName) {
+    public void setlName(String lName) {
         this.lName = lName;
     }
 
@@ -72,7 +75,14 @@ public class User {
         this.phone = phone;
     }
 
-    @NotNull
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -82,6 +92,7 @@ public class User {
                 ", fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
                 ", phone='" + phone + '\'' +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 }

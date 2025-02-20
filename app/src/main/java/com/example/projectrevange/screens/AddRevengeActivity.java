@@ -1,10 +1,8 @@
 package com.example.projectrevange.screens;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -15,11 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.projectrevange.R;
 import com.example.projectrevange.models.Revenge;
 import com.example.projectrevange.models.User;
-import com.example.projectrevange.models.UserAdapter;
+import com.example.projectrevange.adapters.UserAdapter;
 import com.example.projectrevange.services.AuthenticationService;
 import com.example.projectrevange.services.DatabaseService;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -101,8 +98,9 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
 
     private void populateUsersSpinner(List<User> users) {
         // Create the custom adapter for the Spinner
-        UserAdapter adapter = new UserAdapter(this, users);
-        spinnerUsers.setAdapter(adapter);
+        // TODO user adapter for spinner
+//        UserAdapter adapter = new UserAdapter(this, users);
+//        spinnerUsers.setAdapter(adapter);
     }
 
     @Override

@@ -9,7 +9,7 @@
     tools:context=".screens.RevengeBusketActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RevengeList"
+        android:id="@+id/revengeList"
         android:layout_width="319dp"
         android:layout_height="598dp"
         android:layout_marginBottom="20dp"

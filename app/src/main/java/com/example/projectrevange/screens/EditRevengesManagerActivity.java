@@ -2,6 +2,7 @@ package com.example.projectrevange.screens;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -21,12 +22,9 @@ import com.example.projectrevange.services.DatabaseService;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.util.Log;
+public class EditRevengesManagerActivity extends AppCompatActivity {
 
-
-public class RevengeBusketActivity extends AppCompatActivity {
-
-    private static final String TAG = "RevengeBusketActivity";
+    private static final String TAG = "EditRevengesManagerActivity";
 
     private RecyclerView revengeBusket;
     RevengeAdapter revengeAdapter;
@@ -37,7 +35,7 @@ public class RevengeBusketActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_revenge_busket);
+        setContentView(R.layout.activity_edit_users_manager);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -110,8 +108,4 @@ public class RevengeBusketActivity extends AppCompatActivity {
     }
 
 
-    private class RevengeBusket {
-
-
-    }
 }

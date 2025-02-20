@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -53,6 +54,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         etLName = findViewById(R.id.etLName);
         etPhone = findViewById(R.id.etPhone);
         btnRegister = findViewById(R.id.btnRegister);
+
+
 
         /// set the click listener
         btnRegister.setOnClickListener(this);
@@ -161,8 +164,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 user.setUid(uid);
                 user.setEmail(email);
                 user.setPassword(password);
-                user.setFName(fName);
-                user.setLName(lName);
+                user.setfName(fName);
+                user.setlName(lName);
                 user.setPhone(phone);
 
                 /// call the createNewUser method of the database service

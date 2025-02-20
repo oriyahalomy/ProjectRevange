@@ -211,4 +211,8 @@ public class DatabaseService {
     public void deleteRevenge(@NotNull final String id, @NotNull final DatabaseCallback<Void> callback) {
         deleteData("revenge/" + id, callback);
     }
+
+    public void deleteUser(@NotNull final String id, @NotNull final DatabaseCallback<Void> callback) {
+        deleteData("user/" + id, callback);
+    }
 }
