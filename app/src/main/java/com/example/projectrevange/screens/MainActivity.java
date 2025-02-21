@@ -21,7 +21,7 @@ import com.example.projectrevange.utils.SharedPreferencesUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btnKan11,btnlogOut,btnMyRevenge;
+     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btnKan11,btnlogOut,btnHelp;
      private TextView userLoggedIn;
 
     @Override
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnKan11 = findViewById(R.id.btnKan11);
         btnlogOut = findViewById(R.id.btnlogOut);
         userLoggedIn = findViewById(R.id.userLoggedIn);
+        btnHelp = findViewById(R.id.btnHelp);
 
 
 
@@ -55,16 +56,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnBusket.setOnClickListener(this);
         btnKan11.setOnClickListener(this);
         btnlogOut.setOnClickListener(this);
+        btnHelp.setOnClickListener(this);
+
 
 
         if(AuthenticationService.getInstance().isUserSignedIn()) {
             btnlogOut.setVisibility(View.VISIBLE);
             btnRegister.setVisibility(View.GONE);
             btnLogin.setVisibility(View.GONE);
+            btnHelp.setVisibility(View.GONE);
             btnBusket.setVisibility(View.VISIBLE);
             btnAddRevenge.setVisibility(View.VISIBLE);
             userLoggedIn.setVisibility(View.VISIBLE);
-            userLoggedIn.setText(SharedPreferencesUtil.getUser(this).getFName());
+            userLoggedIn.setText(SharedPreferencesUtil.getUser(this).getfName());
         }
 
 
@@ -113,6 +117,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         });
+
+        if (v.getId() == btnHelp.getId()) {
+            Intent intent = new Intent(this, HelpActivity.class);
+            startActivity(intent);
+            return;
+        }
 
 
     }

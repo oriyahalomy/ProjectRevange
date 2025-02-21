@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projectrevange.R;
+import com.example.projectrevange.adapters.UserAdapterList;
 import com.example.projectrevange.models.Revenge;
 import com.example.projectrevange.models.User;
 import com.example.projectrevange.adapters.UserAdapter;
@@ -97,10 +98,8 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void populateUsersSpinner(List<User> users) {
-        // Create the custom adapter for the Spinner
-        // TODO user adapter for spinner
-//        UserAdapter adapter = new UserAdapter(this, users);
-//        spinnerUsers.setAdapter(adapter);
+          UserAdapterList adapter = new UserAdapterList(this, users);
+          spinnerUsers.setAdapter(adapter);
     }
 
     @Override
