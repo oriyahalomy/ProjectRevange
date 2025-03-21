@@ -21,7 +21,7 @@ import com.example.projectrevange.utils.SharedPreferencesUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btnKan11,btnlogOut,btnHelp;
+     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btnKan11,btnlogOut,btnHelp,btnManager;
      private TextView userLoggedIn;
 
     @Override
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnlogOut = findViewById(R.id.btnlogOut);
         userLoggedIn = findViewById(R.id.userLoggedIn);
         btnHelp = findViewById(R.id.btnHelp);
+        btnManager = findViewById(R.id.btnManager);
 
 
 
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnKan11.setOnClickListener(this);
         btnlogOut.setOnClickListener(this);
         btnHelp.setOnClickListener(this);
+        btnManager.setOnClickListener(this);
 
 
 
@@ -71,9 +73,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             userLoggedIn.setText(SharedPreferencesUtil.getUser(this).getfName());
         }
 
+        if(AuthenticationService.getInstance().isAdmin()) {
+            btnManager.setVisibility(View.VISIBLE);
+        }
 
     }
-
 
 
     @Override

@@ -103,4 +103,8 @@ public class AuthenticationService {
     public boolean isUserSignedIn() {
         return mAuth.getCurrentUser() != null;
     }
+
+    public boolean isAdmin() {
+        return mAuth.getCurrentUser() != null;
+    }
 }

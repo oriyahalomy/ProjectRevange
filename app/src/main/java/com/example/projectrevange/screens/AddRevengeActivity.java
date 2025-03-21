@@ -1,14 +1,23 @@
 package com.example.projectrevange.screens;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import com.example.projectrevange.R;
 import com.example.projectrevange.adapters.UserAdapterList;
@@ -18,6 +27,9 @@ import com.example.projectrevange.adapters.UserAdapter;
 import com.example.projectrevange.services.AuthenticationService;
 import com.example.projectrevange.services.DatabaseService;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +42,10 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
     private Spinner spinnerUsers;
     private Date selectedDate;
     private DatabaseService databaseService;
+    private ImageView imageView2;
+
+    /// Activity result launcher for capturing image from camera
+    private ActivityResultLauncher<Intent> captureImageLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +61,7 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
         spinnerUsers = findViewById(R.id.spinnerUsers);
         etTitle = findViewById(R.id.etTitle);
         etHowRevenge = findViewById(R.id.etHowRevenge);
+        imageView2 = findViewById(R.id.imageView2);
 
         // Set onClick listeners
         dateButton.setOnClickListener(v -> {
@@ -73,6 +90,25 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
 
         // Set save and back buttons
         saveButton.setOnClickListener(this);
+
+        /// register the activity result launcher for capturing image from camera
+        captureImageLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Bitmap bitmap = (Bitmap) result.getData().getExtras().get("data");
+                        imageView2.setImageBitmap(bitmap);
+                        /// set the tag for the image view to null
+                        imageView2.setTag(null);
+                    }
+                });
+
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                captureImageFromCamera();
+            }
+        });
 
     }
 
@@ -135,8 +171,12 @@ public class AddRevengeActivity extends AppCompatActivity implements View.OnClic
                 // Handle failure here (show a Toast or log the error)
             }
         });
-
-
-
     }
+
+    /// capture image from camera
+    private void captureImageFromCamera() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        captureImageLauncher.launch(takePictureIntent);
+    }
+
 }
