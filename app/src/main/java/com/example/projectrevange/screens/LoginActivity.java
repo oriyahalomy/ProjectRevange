@@ -1,6 +1,6 @@
 package com.example.projectrevange.screens;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Insets;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
@@ -30,7 +31,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AuthenticationService authenticationService;
     private DatabaseService databaseService;
 
-    @SuppressLint("NewApi")
+    private User currentUser;
+    private Context context;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -104,6 +107,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             /// set focus to password field
             etPassword.requestFocus();
             return false;
+        }
+
+        if (currentUser != null) {
+            if (currentUser.isAdmin()) {
+                Toast.makeText(context, "Welcome, Admin!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Access denied", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(context ,"User not logged in", Toast.LENGTH_SHORT).show();
         }
 
         return true;
