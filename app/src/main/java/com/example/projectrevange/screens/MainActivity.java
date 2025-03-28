@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.projectrevange.R;
+import com.example.projectrevange.models.User;
 import com.example.projectrevange.services.AuthenticationService;
 import com.example.projectrevange.utils.SharedPreferencesUtil;
 
@@ -69,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             btnBusket.setVisibility(View.VISIBLE);
             btnAddRevenge.setVisibility(View.VISIBLE);
             userLoggedIn.setVisibility(View.VISIBLE);
-            userLoggedIn.setText(SharedPreferencesUtil.getUser(this).getfName());
+            User user = SharedPreferencesUtil.getUser(this);
+            userLoggedIn.setText(user.getfName());
         }
 
         if(AuthenticationService.getInstance().isAdmin()) {
@@ -123,6 +125,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v.getId() == btnHelp.getId()) {
             Intent intent = new Intent(this, HelpActivity.class);
+            startActivity(intent);
+            return;
+        }
+
+        if (v.getId() == btnManager.getId()) {
+            Intent intent = new Intent(this, ManagerActivity.class);
             startActivity(intent);
             return;
         }

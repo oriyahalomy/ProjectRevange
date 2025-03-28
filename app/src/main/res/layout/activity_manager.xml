@@ -12,33 +12,41 @@
         android:id="@+id/title"
         android:layout_width="219dp"
         android:layout_height="57dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="36dp"
         android:text="Manager page"
         android:textSize="20dp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="49dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnUsers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
         android:text="Edit Users"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="187dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/btnRevenges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
         android:text="Edit Revenges"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="444dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnReviews" />
 
     <Button
         android:id="@+id/btnReviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="81dp"
         android:text="Watch Reviews"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="309dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUsers" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -111,12 +111,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (currentUser != null) {
             if (currentUser.isAdmin()) {
-                Toast.makeText(context, "Welcome, Admin!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Welcome, Admin!", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(context, "Access denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Access denied", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(context ,"User not logged in", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this ,"User not logged in", Toast.LENGTH_SHORT).show();
         }
 
         return true;

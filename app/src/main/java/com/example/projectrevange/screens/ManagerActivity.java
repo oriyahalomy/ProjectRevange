@@ -14,13 +14,11 @@ import com.example.projectrevange.R;
 
 public class ManagerActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnUsers,btnRevenges;
+    private Button btnUsers,btnRevenges,btnReviews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        btnUsers = findViewById(R.id.btnUsers);
-        btnRevenges = findViewById(R.id.btnRevenges);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -29,8 +27,15 @@ public class ManagerActivity extends AppCompatActivity implements View.OnClickLi
             return insets;
         });
 
+        btnUsers = findViewById(R.id.btnUsers);
+        btnRevenges = findViewById(R.id.btnRevenges);
+        btnReviews = findViewById(R.id.btnReviews);
+
+
+
         btnRevenges.setOnClickListener(this);
         btnUsers.setOnClickListener(this);
+        btnReviews.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
@@ -46,6 +51,13 @@ public class ManagerActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
             return;
         }
+
+        if (v.getId() == btnReviews.getId()) {
+            Intent intent = new Intent(this, EditRevengesManagerActivity.class);
+            startActivity(intent);
+            return;
+        }
+
 
     }
 }
