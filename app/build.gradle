@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'com.example.projectrevange'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.projectrevange"
-        minSdk 24
+        minSdk 33
         targetSdk 34
         versionCode 1
         versionName "1.0"
