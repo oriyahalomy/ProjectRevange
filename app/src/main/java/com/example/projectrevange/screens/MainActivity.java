@@ -22,7 +22,7 @@ import com.example.projectrevange.utils.SharedPreferencesUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btnKan11,btnlogOut,btnHelp,btnManager;
+     private Button btnAddRevenge,btnLogin,btnRegister,btnBusket,btnKan11,btnlogOut,btnHelp,btnManager,btnStat,btnAi;
      private TextView userLoggedIn;
 
     @Override
@@ -46,9 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         userLoggedIn = findViewById(R.id.userLoggedIn);
         btnHelp = findViewById(R.id.btnHelp);
         btnManager = findViewById(R.id.btnManager);
-
-
-
+        btnStat = findViewById(R.id.btnStat);
+        btnAi =  findViewById(R.id.btnAi);
 
 
         btnAddRevenge.setOnClickListener(this);
@@ -59,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnlogOut.setOnClickListener(this);
         btnHelp.setOnClickListener(this);
         btnManager.setOnClickListener(this);
+        btnStat.setOnClickListener(this);
+        btnAi.setOnClickListener(this);
 
 
 
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(AuthenticationService.getInstance().isAdmin()) {
             btnManager.setVisibility(View.VISIBLE);
+            btnStat.setVisibility(View.VISIBLE);
         }
 
     }
@@ -134,6 +136,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
             return;
         }
+
+        if (v.getId() == btnStat.getId()) {
+            Intent intent = new Intent(this, StatManager.class);
+            startActivity(intent);
+            return;
+        }
+
+        btnAi.setOnClickListener(view -> {
+            String url ="https://openai.com/";
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+        });
+
 
 
     }

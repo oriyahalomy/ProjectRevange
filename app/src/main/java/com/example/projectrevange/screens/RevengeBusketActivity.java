@@ -78,7 +78,7 @@ public class RevengeBusketActivity extends AppCompatActivity {
 
     private void showDeleteDialog(final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Remove User")
+        builder.setTitle("Remove revenge")
                 .setMessage("Are you sure?")
                 .setCancelable(false)
                 .setPositiveButton("yes", new DialogInterface.OnClickListener() {

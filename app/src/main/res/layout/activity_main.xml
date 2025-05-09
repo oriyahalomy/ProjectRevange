@@ -81,7 +81,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
-
+        android:background="#7A2D2D"
+        android:foregroundTint="#E4CACA"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,13 +97,13 @@
         android:id="@+id/btnlogOut"
         android:layout_width="101dp"
         android:layout_height="52dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="144dp"
         android:backgroundTint="@color/design_default_color_error"
-        android:visibility="invisible"
-
         android:text="LogOut"
+
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -131,11 +134,34 @@
         android:id="@+id/btnManager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="148dp"
         android:backgroundTint="@color/design_default_color_error"
         android:text="Manager Page"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Stat"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Ways to revenge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

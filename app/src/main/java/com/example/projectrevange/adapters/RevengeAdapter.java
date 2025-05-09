@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectrevange.R;
 import com.example.projectrevange.models.Revenge;
+import com.example.projectrevange.models.User;
 
 import java.util.List;
 
