@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.example.projectrevange.models.Revenge;
+import com.example.projectrevange.models.Review;
 import com.example.projectrevange.models.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -214,5 +215,23 @@ public class DatabaseService {
 
     public void deleteUser(@NotNull final String id, @NotNull final DatabaseCallback<Void> callback) {
         deleteData("user/" + id, callback);
+    }
+
+    public String generateNewReviewId() {
+        return generateNewId("Reveiew");
+    }
+
+
+    public void createNewReview(@NotNull final Review review, @Nullable final DatabaseCallback<Void> callback) {
+        writeData("Reveiew/" + review.getId(), review, callback);
+    }
+
+
+    public void getReview(@NotNull final String id, @NotNull final DatabaseCallback<Review> callback) {
+        getData("Review/" + id, Review.class, callback);
+    }
+
+    public void getReviewList(@NotNull final DatabaseCallback<List<Review>> callback) {
+        getDataList("Review", Review.class, callback);
     }
 }

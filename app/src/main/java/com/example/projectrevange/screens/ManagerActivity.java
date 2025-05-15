@@ -53,7 +53,7 @@ public class ManagerActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         if (v.getId() == btnReviews.getId()) {
-            Intent intent = new Intent(this, EditRevengesManagerActivity.class);
+            Intent intent = new Intent(this, ReviewActivity.class);
             startActivity(intent);
             return;
         }

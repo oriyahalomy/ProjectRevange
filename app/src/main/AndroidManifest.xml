@@ -21,6 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectRevange">
         <activity
+            android:name=".screens.ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".screens.StatManager"
             android:exported="false" />
         <activity
@@ -51,7 +57,7 @@
             android:name=".screens.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".screens.MainActivity"
+            android:name=".screens.splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
